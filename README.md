@@ -235,25 +235,25 @@ GET /api/stories/bookmarks
 
 ## Login Page
 
-_Add screenshot here_
+![Login Page](./screenshots/login.png)
 
 ---
 
 ## Register Page
 
-_Add screenshot here_
+![Register Page](./screenshots/register.png)
 
 ---
 
 ## Home Page
 
-_Add screenshot here_
+![Home Page](./screenshots/home.png)
 
 ---
 
 ## Bookmarks Page
 
-_Add screenshot here_
+![Bookmarks Page](./screenshots/bookmarks.png)
 
 ---
 
