@@ -4,10 +4,14 @@ import cors from 'cors';
 
 import connectDB from './src/config/db.js';
 import authRoutes from './src/routes/authRoutes.js';
+import scraperNews from './src/scraper/scraperNews.js';
+import storyRoutes from './src/routes/storyRoutes.js';
 
 dotenv.config();
 
 connectDB();
+
+scraperNews();
 
 const app = express();
 
@@ -23,6 +27,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/stories', storyRoutes);
 
 const PORT = process.env.PORT || 5000;
 
