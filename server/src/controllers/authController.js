@@ -76,7 +76,12 @@ const loginUser = async (req, res) => {
     }
 };
 
+const getMe = async (req, res) => {
+    res.json(req.user);
+};
+
 export {
     registerUser,
     loginUser,
+    getMe,
 };
