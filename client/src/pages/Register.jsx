@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -28,9 +29,10 @@ const Register = () => {
         const result = await register(formData);
 
         if (result.success) {
+            toast.success('Account created successfully');
             navigate('/');
         } else {
-            alert(result.message);
+            toast.error(result.message);
         }
     };
 

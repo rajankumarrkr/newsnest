@@ -9,11 +9,13 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Bookmarks from './pages/Bookmarks';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
     <>
       <Navbar />
+      <Footer />
       <Routes>
         <Route path="/" element={<Home />} />
 

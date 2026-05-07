@@ -63,21 +63,44 @@ const Home = () => {
             {/* Stories */}
             <section className="max-w-5xl mx-auto px-4 pb-16">
                 {loading ? (
-                    <div className="text-center py-20 text-xl text-slate-500">
-                        Loading stories...
+                    <div className="space-y-6">
+                        {[1, 2, 3].map((item) => (
+                            <div
+                                key={item}
+                                className="bg-white rounded-3xl border border-slate-200 p-6 animate-pulse"
+                            >
+                                <div className="h-6 bg-slate-200 rounded w-3/4 mb-4"></div>
+
+                                <div className="flex gap-4">
+                                    <div className="h-4 bg-slate-200 rounded w-24"></div>
+
+                                    <div className="h-4 bg-slate-200 rounded w-24"></div>
+
+                                    <div className="h-4 bg-slate-200 rounded w-24"></div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 ) : (
                     <div className="space-y-6">
-                        {stories.map(
-                            (story) => (
+                        {stories.length === 0 ? (
+                            <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center shadow-sm">
+                                <h2 className="text-2xl font-bold text-slate-700 mb-3">
+                                    No stories available
+                                </h2>
+
+                                <p className="text-slate-500">
+                                    Try scraping stories again.
+                                </p>
+                            </div>
+                        ) : (
+                            stories.map((story) => (
                                 <StoryCard
                                     key={story._id}
                                     story={story}
-                                    refreshStories={
-                                        fetchStories
-                                    }
+                                    refreshStories={fetchStories}
                                 />
-                            )
+                            ))
                         )}
                     </div>
                 )}

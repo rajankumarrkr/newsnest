@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -29,9 +30,10 @@ const Login = () => {
         const result = await login(formData);
 
         if (result.success) {
+            toast.success('Login successful');
             navigate('/');
         } else {
-            alert(result.message);
+            toast.error(result.message);
         }
     };
 
