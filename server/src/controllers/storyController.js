@@ -66,8 +66,31 @@ const toggleBookmark = async (req, res) => {
         });
     }
 };
+
+
+const getBookmarks = async (
+    req,
+    res
+) => {
+    try {
+        const user =
+            await User.findById(
+                req.user._id
+            ).populate('bookmarks');
+
+        res.json(user.bookmarks);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+};
+
+
+
 export {
     scrapeStories,
     getStories,
     toggleBookmark,
+    getBookmarks,
 };

@@ -2,6 +2,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -25,7 +26,11 @@ const App = () => {
 
         <Route
           path="/bookmarks"
-          element={<Bookmarks />}
+          element={
+            <ProtectedRoute>
+              <Bookmarks />
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </>
